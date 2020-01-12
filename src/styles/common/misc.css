@@ -1,0 +1,42 @@
+.main-heading{
+    font-size: 30px;
+    color: grey;
+    font-weight: bold;
+    text-align: center;
+}
+
+.sub-heading{
+    font-size: 20px;
+    color: grey;
+    font-weight: bold;
+    text-align: center;
+}
+
+.margin-top-40 {
+    margin-top: 40px !important;
+}
+
+.margin-auto {
+    margin: auto;
+}
+
+.margin-top-140 {
+    margin-top : 140px;
+}
+.video-container{
+    width: 90%;
+    height: 50vh;
+    margin-left:5%;
+    margin-top: 10vh;
+
+}
+.text-input{
+    width: 100%;
+   
+}
+.todo-button-container{
+    text-align: center;
+    position: absolute;
+    bottom: 7%;
+    width: 100%
+}

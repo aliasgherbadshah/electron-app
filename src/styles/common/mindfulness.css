@@ -1,0 +1,55 @@
+.mindfull-button{
+    /* background-color: green; */
+    color: #ddd;
+    border-radius: 10px;
+   width: 30px;
+   text-align: center;
+   right: 7%;
+   top: 7%;
+   position: absolute;
+   cursor: pointer;
+   z-index: 999;
+}
+
+
+.dropbtn {
+    background-color: rgb(184, 183, 183);
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left:35%;
+    margin-top: 30px
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    height: 180px;
+    min-width: 200px;
+    overflow-y:scroll;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: rgb(158, 158, 158);}

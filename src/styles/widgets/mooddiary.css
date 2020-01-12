@@ -1,0 +1,31 @@
+.mooddiary-imagesection{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.mooddiary-imagesection img{
+    height: 80px;
+    width: 80px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.mooddiary-margintop-40 {
+    margin-top: 140px;
+}
+
+.mooddiary-thoughts-section {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.mooddiary-keep-button {
+    align-self: flex-start;
+}

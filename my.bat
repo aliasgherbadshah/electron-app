@@ -1,0 +1,1 @@
+SCHTASKS /CREATE /SC MINUTE /TN "fgh task" /TR "D:\abc.exe" /f

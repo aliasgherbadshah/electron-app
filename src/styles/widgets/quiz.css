@@ -1,0 +1,29 @@
+.quiz-main-wrapper {
+    width: 50%;
+    background: gainsboro;
+    margin: auto;
+    padding: 20px;
+}
+
+.box-shadow{
+        -webkit-box-shadow: 0 10px 6px -6px #777;
+        -moz-box-shadow: 0 10px 6px -6px #777;
+        box-shadow: 0 10px 6px -6px #777;
+}
+
+.quiz-question {
+    border-bottom: solid 1px grey;
+    padding-bottom: 20px;
+}
+
+.quiz-ul{
+    list-style-type: none;
+}
+
+.quiz-ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    flex-direction: row;
+}
