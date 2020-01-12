@@ -1,11 +1,35 @@
 import React, { Component } from 'react';
 import Widgets from '../index';
 import '../../styles/common/misc.css';
+import constants from '../../constants';
+import Axios from "axios"
 
 class Stretch extends Component {
     state = {
-        isVideo: false
+        isVideo: false,
+        video_link:null,
+        loading:true
     }
+    componentDidMount() {
+     const url = `${constants.BASE_URL}app/strecth/vedio`;
+        Axios({
+            url,
+            method: 'get',
+        }).then(response => {
+            this.setState({
+                video_link: response.data.data.video_link,      
+                loading: false
+            })
+        }).catch(err => {
+            console.log(err);
+            this.setState({
+                loading: false
+            })
+        })   
+    }
+
+    
+
     _toogleViedo = () => {
         this.setState({
             isVideo: !this.state.isVideo
@@ -20,7 +44,12 @@ class Stretch extends Component {
                             <>
                                 <div className="main-heading">Video</div>
 
-                                <video className="video-container" src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
+                                
+                                <video className="video-container"  src={this.state.video_link} controls autoplay>
+                                 
+//                                  <source src={this.state.video_link} type="video/ogg"/>
+                                  App does not support the video tag.
+                                </video>
                                 <div className="aling-button-middle">
                                 <button
                                     onClick={this._toogleViedo}
@@ -38,9 +67,10 @@ class Stretch extends Component {
 
                                     <div className="aling-button-middle">
                                         <button
+                                            disabled={this.state.loading}
                                             onClick={this._toogleViedo}
                                             className="button-primary"
-                                        >   stretch </button>
+                                        >   {this.state.loading?"Loading...":"stretch"} </button>
                                     </div>
                                 </div>
                             </>

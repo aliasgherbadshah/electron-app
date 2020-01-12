@@ -10,7 +10,7 @@ const ModalWrapperMainView = (props) => {
         <React.Fragment>
 
             <div style={{ height: "97vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "10px", position: "relative" }}>
-                <Navigator />
+//                <Navigator />
                 <MindfulnessButton />
                 <div className='modalwrapper-container'>
 

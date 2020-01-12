@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import '../../../styles/common/misc.css';
+import constants from '../../../constants';
+import Axios from "axios"
 let interval
+
 class StartPuzzel extends Component {
     state = {
         timer: "2:00",
+        loading:true,
+        answer:null,
+        result:null,
         isTimesUp: false
     }
     componentDidMount() {
@@ -26,12 +32,37 @@ class StartPuzzel extends Component {
 
 
             if (minutes == 0 && seconds == 0) {
-                this.setState({
-                    isTimesUp: true
-                })
-                clearInterval(interval)
+               
+                this.submitAnswer()
+               
             };
         }, 1000);
+    }
+    submitAnswer = () =>{
+        console.log(this.state.answer.split(" "))
+        this.setState({
+            isTimesUp: true,
+        })
+        clearInterval(interval)
+        const url = `${constants.BASE_URL}app/puzzle/answers/${this.props.id}`;
+        Axios({
+            url,
+            method: 'post',
+            data:{
+                	"words":this.state.answer.split(" ")
+            }
+        }).then(response => {
+            this.setState({
+                result: response.data.data.true_answers,
+                
+                loading: false
+            })
+        }).catch(err => {
+            console.log(err);
+            this.setState({
+                loading: false
+            })
+        })   
     }
     render() {
         return (
@@ -46,15 +77,19 @@ class StartPuzzel extends Component {
                     type="text"
                     placeholder="Start typing your words here."
                     style={{ marginTop: "20%", marginBottom: "10%" }}
+                    onChange={(e)=>{this.setState({
+                        answer:e.target.value
+                    })}}
                 />
 
                 <div className="sub-heading">
                     {
-                        this.state.isTimesUp ? "YOU SCORED 29" : null
+                        this.state.isTimesUp ? this.state.loading?"Submiting Answer...":"YOU SCORED "+this.state.result : null
                     }</div>
                 <button
                     className="button-primary"
                     style={{ paddingRight: "15px", paddingLeft: "15px", marginTop: "20px" }}
+                    onClick={this.submitAnswer}
                 >
                     Submit
                 </button>

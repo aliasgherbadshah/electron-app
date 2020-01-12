@@ -6,12 +6,14 @@ import StartPuzzel from './template/start.puzzle';
 
 class Puzzel extends Component {
     state = {
-        isPuzzleStart: false
+        isPuzzleStart: false,
+        id:null
     }
 
-    startPuzzle = () => {
+    startPuzzle = (id) => {
         this.setState({
-            isPuzzleStart: true
+            isPuzzleStart: true,
+            id:id
         })
     }
     render() {
@@ -19,7 +21,7 @@ class Puzzel extends Component {
             <Widgets.ModalWrapper>
                 {
                     this.state.isPuzzleStart ?
-                        <StartPuzzel /> :
+                        <StartPuzzel id={this.state.id} /> :
                         <PuzzelQuestion startPuzzle={this.startPuzzle} />
                 }
             </Widgets.ModalWrapper>

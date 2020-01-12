@@ -21,7 +21,9 @@ function createWindow() {
 
   const win = new BrowserWindow({ width: 540, height: 550 })
   win.setPosition(0, 0, true)
-  // win.setMenu(null)
+  win.setMenu(null) //uncomment while making build
+    
+    
   // win.loadFile('index.html');
   // win.loadURL('http://localhost:8080/')
   // win.loadURL(`file://${path.join(__dirname, '../build/index.html')}`);
